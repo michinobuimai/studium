@@ -168,5 +168,17 @@ ergebnis2 = quadrat_berechnen()   # Nutzt den Standardwert (2) und gibt 4 zurüc
 # >> math.sin(math.pi * 0.5) # Gibt 1.0 zurück
 
 
+### Dateioperationen
+# Mit open() kann man Dateien öffnen und lesen oder schreiben.
+# Syntax: open(dateiname, modus)
+# Modi: 'r' = read, 'w' = write (überschreibt), 'a' = append (hängt an), 'b' = binary (für Binärdateien),
+#       'x' = create (erstellt neue Datei, Fehler wenn existiert),       't' = text (Standardmodus)
+#       '+' = read & write (kombiniert), 'absolute' = absolute path, 'relative' = relative path
 
+# Beispiel: Lesen einer Textdatei
+# with open("beispiel.txt", "r") as datei:
+#     inhalt = datei.read()
+#     print(inhalt)
+
+#
 
