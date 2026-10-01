@@ -1,13 +1,13 @@
 m = input("\n\nNachricht: ")
 
 
-b = input("\n\nRAS? (Ja/Nein): ").strip().lower()
+b = input("\n\nRSA? (Ja/Nein): ").strip().lower()
 
 match b:
     case "ja":
-        print ("> RAS wurde activiert")
+        print ("> RSA wurde activiert")
     case "nein":    
-        print ("> RAS wurde deactiviert")
+        print ("> RSA wurde deactiviert")
     case _:
         print(f"\033[31m> kein wert wurde übergeben, rückfall auf NEIN\033[0m")
 

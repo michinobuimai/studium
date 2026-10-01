@@ -158,3 +158,15 @@ def quadrat_berechnen(zahl=2):
 # Aufrufe testen:
 ergebnis1 = quadrat_berechnen(5)  # Gibt 25 zurück
 ergebnis2 = quadrat_berechnen()   # Nutzt den Standardwert (2) und gibt 4 zurück
+
+
+
+
+
+### paketimport
+# bsp. import math
+# >> math.sin(math.pi * 0.5) # Gibt 1.0 zurück
+
+
+
+
