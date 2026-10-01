@@ -139,7 +139,7 @@ wichtige_zahlen.remove(99)     # Entfernt die 99 wieder aus der Liste
 
 
 # ------------------------------------------------------------------------------
-# 9. FUNKTIONEN (def) (Neu hinzugefügt)
+# 9. FUNKTIONEN (def)
 # ------------------------------------------------------------------------------
 # Eine Funktion bündelt Code-Blöcke und kann optionale Parameter sowie Rückgabewerte haben.
 
@@ -180,5 +180,4 @@ ergebnis2 = quadrat_berechnen()   # Nutzt den Standardwert (2) und gibt 4 zurüc
 #     inhalt = datei.read()
 #     print(inhalt)
 
-#
 
