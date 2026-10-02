@@ -1,24 +1,7 @@
-# othello start screen
-
-
-
 # rules for the game of Othello
-
-# 8x8 grid (insg 64 Felder)
-
 #30 chips für 2 Spieler
-
-#auswählen wer anfängt 50/50 chip wird hochgeworfen (münze)
-
 # schwarz fängt an
 #4 chips in der mitte 44 55 schwarz 45 54 weiß
-
-
-
-
-## wie kann man schauen welche stellen legal sind? ##
-#möglche darstellung des Feldes ist eine Aufteilung des Feldes für spieler 1 und spieler 2 in eigene
-# sowie des leeren feldes
 
 #test "bitboard" (theoretisch ist es ja auch othello aber 1d lol)
 # l = "10011110001" 
@@ -65,52 +48,42 @@
 # l         = "10011110001"
 # allowed   = "10000010000"
 
-
+#def debug_64bit(v):
+#    bstr = f"{v & 0xFFFFFFFFFFFFFFFF:064b}"
+#    frmt = "\n".join(bstr[i:i+8] for i in range(0, 64, 8))
+#    print(f"{frmt}")
 ####
 
 #Bitwise operations cheat sheet: ~ INVERT, | OR(beide oder 1 von beiden), & AND(beide), ^ XOR(nur eines von beiden), << BITSHIFT LEFT, >> BITSHIFT  RIGHT
 #!! bitshift wrapped muss man aufpassen!!!
+# Spagetthi !!!!
 
-s = 0b00000000_00000000_00100000_00000100_00000000_00000000_00000000_00000000
-w = 0b00000000_00000000_00010000_00000010_00000000_00000000_00000000_00000000
-valid_moves()
+wc      = 30
+sc      = 30
+w       = 0b00000000_00000000_00000000_00001000_00010000_00000000_00000000_00000000
+s       = 0b00000000_00000000_00000000_00010000_00001000_00000000_00000000_00000000
+msk     = 0b11111111_11111111_11111111_11111111_11111111_11111111_11111111_11111111
+mr      = 0b11111110_11111110_11111110_11111110_11111110_11111110_11111110_11111110
+ml      = 0b01111111_01111111_01111111_01111111_01111111_01111111_01111111_01111111
+f       = ~(s | w) & msk
+richt   = [(8,msk),(-8,msk),(-1,mr),(1,ml),(7,mr),(9,ml),(-9,mr),(-7,ml)]
 
+def shift(c, d): #shiftet die bits je nach richtung 
+    return ((c << d) if d > 0 else (c >> -d)) & msk
+def valide(a, b): #valide spots/bitmap und die max depth länge in jede valide richtung
+    global tf,tc
+    tf , tc = {} , 0
+    for vsb, msk2 in richt:
+        t = 0
+        new     = shift(a, vsb) & msk2 & b
+        while new:
+            t      |= new
+            tf[str(-vsb)] = tf.get(str(-vsb), 0)  + 1
+            new     = shift(new, vsb) & msk2 & b & ~t
+        tt = shift(t, vsb)    & msk2 & f
+        if tt: tc|=tt
 
-
-
-def valid_moves():
-    global vals, valw
-    vals = 0b00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000
-    valw = 0b00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000
-
-    
-    # wo es frei ist
-    f = ~(s|w)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
+valide(s,w)
 
 
 
-#c boolean um farbe zu entscheiden put ist halt selbsterklärend lol
-def place_chippy(put,c):
-    if (f & put) == 0:
-        return False
-    if c == 0:
-        if (vals & put) == 0:
-            return False
-        return True
-    if (valw & put) == 0:
-        return False
-    return True
