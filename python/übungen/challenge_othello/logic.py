@@ -48,10 +48,10 @@
 # l         = "10011110001"
 # allowed   = "10000010000"
 
-#def debug_64bit(v):
-#    bstr = f"{v & 0xFFFFFFFFFFFFFFFF:064b}"
-#    frmt = "\n".join(bstr[i:i+8] for i in range(0, 64, 8))
-#    print(f"{frmt}")
+def debug_64bit(v):
+    bstr = f"{v & 0xFFFFFFFFFFFFFFFF:064b}"
+    frmt = "\n".join(bstr[i:i+8] for i in range(0, 64, 8))
+    print(f"{frmt}")
 ####
 
 #Bitwise operations cheat sheet: ~ INVERT, | OR(beide oder 1 von beiden), & AND(beide), ^ XOR(nur eines von beiden), << BITSHIFT LEFT, >> BITSHIFT  RIGHT
@@ -67,6 +67,7 @@ mr      = 0b11111110_11111110_11111110_11111110_11111110_11111110_11111110_11111
 ml      = 0b01111111_01111111_01111111_01111111_01111111_01111111_01111111_01111111
 f       = ~(s | w) & msk
 richt   = [(8,msk),(-8,msk),(-1,mr),(1,ml),(7,mr),(9,ml),(-9,mr),(-7,ml)]
+turn = "s"
 
 def shift(c, d): #shiftet die bits je nach richtung 
     return ((c << d) if d > 0 else (c >> -d)) & msk
@@ -82,8 +83,13 @@ def valide(a, b): #valide spots/bitmap und die max depth länge in jede valide r
             new     = shift(new, vsb) & msk2 & b & ~t
         tt = shift(t, vsb)    & msk2 & f
         if tt: tc|=tt
+    #debug_64bit(tc)
+    #print(tf)
+    return tc != 0    
+def place(p):
+    return False
 
-valide(s,w)
+def next_turn():
+    return False
 
-
-
+#schwierigster part ist fertig switche to .js wegen git kompatabilität

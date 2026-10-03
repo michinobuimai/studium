@@ -12,7 +12,7 @@ match b:
         print(f"\033[31m> kein wert wurde übergeben, rückfall auf NEIN\033[0m")
 
 
-base=64
+base=100
 
 print(f"Nachricht encodiert in Basis-{base}")
 
