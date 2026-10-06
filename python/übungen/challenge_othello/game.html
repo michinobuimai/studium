@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Othello!</title>
-  <link rel="stylesheet" href="game.css">
-  <script src="ui.js"> defer</script>
-  <script src="game.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Othello!</title>
+<link rel="stylesheet" href="game.css" defer>
+<script src="game.js" defer></script>
 </head>
 
+
 <body>
-    <div id="bar"> <!-- only show when in game-->
-        <div id="volume">
-          <!--Volume icon (3pngs)  volume bar (custom) -->  
-        </div>
-        <div id="exit"> <!-- png button--> </div>
-    </div>
+ 
+<div id="game" hidden>
+  <div id="bar">
+
+  </div>
 
 
-
-
-
-
-    <div id="start"> <!--hide once start is clicked-->
-        <div id="title">
-          <!--7pngs showing up one after another on load (8 but the second last is the one that is special and can be clicked to spin it)   --> 
-        </div>
-    </div>
-
-
-
+</div>
+ 
+<div id="wipe"></div>
+ 
+<div id="start">
+  <div id="titlescreen"></div>
+  <div id="hint">click the chip to spin it - spin it fast to start</div>
+</div>
 </body>
+</html>
+ 

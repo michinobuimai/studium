@@ -3,7 +3,7 @@
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
-# 1. BASIS-DATENTYPEN
+# 1. BASIS-DATENTYPEN testtest
 # ------------------------------------------------------------------------------
 # Integer (int)   : Ganzzahlen (z. B. 5, -3)
 # Float (float)   : Gleitkommazahlen. Wichtig: Divisionen (/) liefern IMMER ein Float!
